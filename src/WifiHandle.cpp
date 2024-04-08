@@ -6,8 +6,12 @@
 #include "WiFi.h"
 #include "WiFiManager.h"
 #include "bitmap.h"
+#include "Preferences.h"
 
 WiFiManager wifiManager;
+WiFiManagerParameter para_seniverse_key("seniverse_key", "心知天气Token", "", 32); //     心知天气key
+// WiFiManagerParameter para_seniverse_location("seniverse_loc", "位置ID", "", 9, "pattern='\\d{9}'"); //     城市code
+
 bool shouldSaveConfig = false;
 void displayMainPage();
 extern Ticker ticker;
@@ -18,7 +22,8 @@ extern u32_t second;
  */
 void initWifiManager() {
     wifiManager.setDebugOutput(false);
-
+    wifiManager.setTitle("E-ink-calendar");
+    wifiManager.addParameter(&para_seniverse_key);
     // 设置进入AP模式的回调
     wifiManager.setAPCallback(configModeCallback);
     // 设置点击保存的回调
@@ -59,6 +64,10 @@ void configModeCallback(WiFiManager* myWiFiManager) {
  */
 void saveConfigCallback() {
     debug_println("Should save config");
+    Preferences pref;
+    pref.begin(PREF_NAMESPACE);
+    pref.putString(XINZHI_API_KEY, para_seniverse_key.getValue());
+    pref.end();
     shouldSaveConfig = true;
     displayMainPage();
 }

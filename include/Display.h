@@ -25,7 +25,8 @@
 #define TEXT38_MN (u8g2_font_inb38_mn)
 #define TEXT35_FUB (u8g2_font_fub35_tf)
 
-extern GxEPD2_3C<GxEPD2_420c_1680, GxEPD2_420c_1680::HEIGHT> display;
+// extern GxEPD2_3C<GxEPD2_420c_1680, GxEPD2_420c_1680::HEIGHT> display;
+extern GxEPD2_3C<GxEPD2_420c_GDEY042Z98, GxEPD2_420c_GDEY042Z98::HEIGHT> display;
 extern U8G2_FOR_ADAFRUIT_GFX u8g2Fonts;
 
 void displayInit();

@@ -1,8 +1,10 @@
 #include "Display.h"
 #include "Config.h"
 
-GxEPD2_3C<GxEPD2_420c_1680, GxEPD2_420c_1680::HEIGHT> display(
-        GxEPD2_420c_1680(/*CS=D8*/ SS, /*DC*/ PIN_DC, /*RST*/ PIN_RES, /*BUSY*/ PIN_BUSY)); //
+// GxEPD2_3C<GxEPD2_420c_1680, GxEPD2_420c_1680::HEIGHT> display(
+//         GxEPD2_420c_1680(/*CS=D8*/ SS, /*DC*/ PIN_DC, /*RST*/ PIN_RES, /*BUSY*/ PIN_BUSY)); //
+GxEPD2_3C<GxEPD2_420c_GDEY042Z98, GxEPD2_420c_GDEY042Z98::HEIGHT> display(
+        GxEPD2_420c_GDEY042Z98(/*CS=D8*/ SS, /*DC*/ PIN_DC, /*RST*/ PIN_RES, /*BUSY*/ PIN_BUSY)); //
 U8G2_FOR_ADAFRUIT_GFX u8g2Fonts;
 
 void displayInit() {
