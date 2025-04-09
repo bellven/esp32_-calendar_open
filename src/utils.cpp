@@ -53,6 +53,6 @@ String splitString(const String s, u8_t count) {
 void toggleLed() {
     // toggle state
     int state = digitalRead(PIN_LED);  // get the current state of GPIO1 pin
-    debug_println(state);
+    // debug_println(state);
     digitalWrite(PIN_LED, !state);     // set pin to the opposite state
 }

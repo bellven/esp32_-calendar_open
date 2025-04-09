@@ -69,7 +69,8 @@ void saveConfigCallback() {
     pref.putString(XINZHI_API_KEY, para_seniverse_key.getValue());
     pref.end();
     shouldSaveConfig = true;
-    displayMainPage();
+    // displayMainPage();
+    ESP.restart(); // 重启
 }
 
 void handleRestWifi() {
